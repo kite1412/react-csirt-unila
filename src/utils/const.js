@@ -1,0 +1,1 @@
+export const contentHorizontalPaddingPx = 40;

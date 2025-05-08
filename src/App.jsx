@@ -1,7 +1,9 @@
-import "./App.css";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
-  return <div className="text-3xl">asd</div>;
+  return <div className="w-screen h-screen bg-white">
+    <MainLayout />
+  </div>;
 }
 
 export default App;
