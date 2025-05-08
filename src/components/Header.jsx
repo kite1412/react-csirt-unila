@@ -1,6 +1,6 @@
-import { contentHorizontalPaddingPx } from "../utils/const";
 import LogoLarge from "../assets/logoLarge.svg?react";
 import { useState } from "react";
+import contentHorizontalPadding from "../styles/contentHorizontalPadding";
 
 const menus = [
   "Beranda",
@@ -12,18 +12,21 @@ const menus = [
   "Kontak Kami"
 ]
 
-export default function Header() {
+export default function Header({
+  className = ""
+}) {
   const [selectedMenu, setSelectedMenu] = useState(menus[0]);
 
   return (
     <div
       className={`
-        flex w-full justify-between items-center pb-4
+        flex w-full justify-between items-center pb-4 ${className}
       `}
       style={{
-        paddingRight: `${contentHorizontalPaddingPx}px`,
-        paddingLeft: `${contentHorizontalPaddingPx}px`,
-        background: "linear-gradient(178.5deg, #081423 75%, white 76%, white 100%)"
+        ...contentHorizontalPadding,
+        ...{
+          background: "linear-gradient(178.5deg, #081423 75%, white 76%)"
+        }
       }}
     >
       <LogoLarge 
