@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: oklch(0.19 0.0354 254.57);
+  --color-on-primary: oklch(0.72 0.1189 192.03);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url('assets/fonts/Montserrat-VariableFont_wght.ttf') format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url('assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 100 900;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,6 +49,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Montserrat';
 }
 
 h1 {
