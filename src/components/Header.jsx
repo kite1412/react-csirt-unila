@@ -1,6 +1,8 @@
 import LogoLarge from "../assets/logoLarge.svg?react";
 import { Link, useLocation } from "react-router-dom";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
+import HeaderBg from "../assets/headerBg.svg?react";
+import headerBg from "../assets/headerBg.svg";
 
 const menus = [
   { name: "Beranda", path: "/" },
@@ -18,11 +20,12 @@ export default function Header({ className = "" }) {
   return (
     <div
       className={`
-        flex w-full justify-between items-center pb-4 ${className}
+        flex w-full justify-between items-center ${className} bg-[#081423]
       `}
       style={{
         ...contentHorizontalPadding,
-        background: "linear-gradient(178.5deg, #081423 75%, white 76%)",
+        // background: "linear-gradient(178.5deg, #081423 75%, white 76%)",
+        // clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
       }}
     >
       <LogoLarge className="aspect-3/2 max-w-[250px]" />

@@ -14,7 +14,7 @@ import router from "./routes";
 
 function App() {
   return (
-    <div className="w-screen h-screen bg-white">
+    <div className="w-screen h-fit bg-blue-500 ">
       <RouterProvider router={router} />
     </div>
   );

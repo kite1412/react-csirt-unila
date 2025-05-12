@@ -5,19 +5,21 @@ import aboutBg from "../assets/aboutBg.svg";
 
 function HomePage() {
   return (
-    <div className="w-full">
+    <div className="flex flex-col bg-white">
       <div
-        className="w-full h-fit flex pt-5 pb-50 px-10"
-        style={{
-          background: "linear-gradient(185.9deg, #081423 75%, white 76%)",
-        }}
+        className=" h-fit flex pt-25 pb-50 px-20 bg-[#081423] justify-between border-1 border-red-500"
+        style={
+          {
+            //   clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 80%)",
+          }
+        }
       >
-        <div className="text-white flex flex-col">
-          <h1 className="text-[40px] font-bold">
+        <div className="text-white flex flex-col justify-around">
+          <h1 className="text-4xl font-semibold">
             COMPUTER SECURITY INCIDENT RESPONSE TEAM
           </h1>
-          <h2 className="text-[36px] font-bold">Universitas Lampung</h2>
-          <p className="w-xl h-fit">
+          <h2 className="text-3xl font-semibold">Universitas Lampung</h2>
+          <p className="w-2xl h-fit ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
             amet placeat unde, magnam ducimus delectus, natus tenetur
             voluptatibus maiores non blanditiis molestias odio, impedit earum
@@ -29,7 +31,7 @@ function HomePage() {
           </p>
           <Link
             to="/selengkapnya"
-            className="border-1 border-gray-100 w-fit h-fit py-2 px-8 rounded-xl"
+            className="border-1 border-gray-100 w-fit h-fit py-2 px-8 rounded-xl font-semibold"
             style={{
               background:
                 "radial-gradient(circle at 53.63% 50.75%, #081423 30%, #1DBBB7 80%)",
@@ -38,11 +40,27 @@ function HomePage() {
             Selengkapnya
           </Link>
         </div>
-        <img
+        {/* <img
           src={ilustration1}
           alt=""
           className="w-sm h-auto"
-        />
+        /> */}
+      </div>
+
+      <div className="w-full flex flex-col bg-white">
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
+        <h1 className="font-semibold text-black">LAYANAN KAMI</h1>
       </div>
     </div>
   );
