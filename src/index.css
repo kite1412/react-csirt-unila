@@ -18,8 +18,30 @@
   font-style: italic;
   font-weight: 100 900;
 }
+
+@keyframes gradient-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(270deg, #1dbbb7, #ffffff, #1dbbb7, #ffffff);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-text 6s ease-in-out infinite;
+}
+
 * {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 html {
   /* overflow-x: hidden; */

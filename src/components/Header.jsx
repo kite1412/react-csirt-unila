@@ -20,12 +20,12 @@ export default function Header({ className = "" }) {
   return (
     <div
       className={`
-        flex w-full justify-between items-center ${className} bg-[#081423]
+        flex w-full justify-between items-center ${className} bg-[#081423] absolute
       `}
       style={{
         ...contentHorizontalPadding,
         // background: "linear-gradient(178.5deg, #081423 75%, white 76%)",
-        // clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
+        clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
       }}
     >
       <LogoLarge className="aspect-3/2 max-w-[250px]" />
