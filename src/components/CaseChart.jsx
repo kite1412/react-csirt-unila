@@ -94,14 +94,14 @@ function CaseChart() {
   };
 
   return (
-    <div className="w-fit flex gap-5 px-10 rounded-xl shadow-sm shadow-black/30 justify-center items-center">
+    <div className="w-fit flex gap-5 px-5 rounded-xl shadow-sm shadow-black/30 justify-center items-center">
       <div className="w-2xl flex h-50">
         <Bar
           data={data}
           options={options}
         />
       </div>
-      <div className="flex flex-col justify-center gap-4 ">
+      <div className="flex flex-col justify-center gap-4 w-35">
         <div className="flex items-center gap-2">
           <span className="w-6 h-3 bg-[#283747] inline-block " />
           <span className="text-sm text-[#081423]">Konten Positif</span>

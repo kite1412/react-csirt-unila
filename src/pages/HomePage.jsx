@@ -6,6 +6,11 @@ import CyberIcon from "../assets/cyberIcon.svg?react";
 import CaseCountCard from "../components/CaseCountCard";
 import CaseChart from "../components/CaseChart";
 import FacultyWebCaseCards from "../components/FacultryWebCaseCards";
+import facultyData from "../mocks/facultyData";
+import IncidentLog from "../components/IncidentLog";
+import incidentData from "../mocks/incidentData";
+import UnilaWebsites from "../components/UnilaWebsites";
+import unilaSitesData from "../mocks/UnilaSitesData";
 
 function HomePage() {
   return (
@@ -113,7 +118,19 @@ function HomePage() {
         <h1 className="font-semibold text-black text-2xl">
           KASUS WEBSITE FAKULTAS
         </h1>
-        <FacultyWebCaseCards />
+        <FacultyWebCaseCards facultyData={facultyData} />
+      </div>
+
+      <div className="w-full h-fit flex flex-col items-center px-20 gap-10">
+        <h1 className="font-semibold text-black text-2xl">LOG INSIDEN</h1>
+        <IncidentLog incidents={incidentData} />
+      </div>
+
+      <div className="w-full h-fit flex flex-col items-center px-20 gap-10">
+        <h1 className="font-semibold text-black text-2xl">
+          WEBSITE DI UNIVERSITAS LAMPUNG
+        </h1>
+        <UnilaWebsites unilaSites={unilaSitesData} />
       </div>
     </div>
   );

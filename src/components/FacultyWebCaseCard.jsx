@@ -34,7 +34,8 @@ function FacultyWebCaseCard({ facultyName, data1, data2 }) {
   return (
     <div className="flex gap-2 border-1 border-red-500 rounded-xl justify-between items-center w-3xs px-10 py-5 h-25">
       <span className="font-semibold w-20">{facultyName}</span>
-      <div className="w-15">
+      <div className="w-15 relative flex justify-center items-center">
+        <div className="absolute font-semibold text-xs">{total}</div>
         <Doughnut
           data={data}
           options={options}
