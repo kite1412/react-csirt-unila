@@ -1,66 +1,58 @@
 import LogoLarge from "../assets/logoLarge.svg?react";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
+import HeaderBg from "../assets/headerBg.svg?react";
+import headerBg from "../assets/headerBg.svg";
 
 const menus = [
-  "Beranda",
-  "Profil",
-  "RFC 2350",
-  "Layanan",
-  "Panduan",
-  "Laporan Insiden",
-  "Kontak Kami"
-]
+  { name: "Beranda", path: "/" },
+  { name: "Profil", path: "/profile" },
+  { name: "RFC 2350", path: "/rfc" },
+  { name: "Layanan", path: "/layanan" },
+  { name: "Panduan", path: "/panduan" },
+  { name: "Laporan Insiden", path: "/laporan" },
+  { name: "Kontak Kami", path: "/kontak" },
+];
 
-export default function Header({
-  className = ""
-}) {
-  const [selectedMenu, setSelectedMenu] = useState(menus[0]);
+export default function Header({ className = "" }) {
+  const location = useLocation();
 
   return (
     <div
       className={`
-        flex w-full justify-between items-center pb-4 ${className}
+        flex w-full justify-between items-center ${className} bg-[#081423] absolute
       `}
       style={{
         ...contentHorizontalPadding,
-        ...{
-          background: "linear-gradient(178.5deg, #081423 75%, white 76%)"
-        }
+        // background: "linear-gradient(178.5deg, #081423 75%, white 76%)",
+        clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
       }}
     >
-      <LogoLarge 
-        className="aspect-3/2 max-w-[250px]"
-      />
+      <LogoLarge className="aspect-3/2 max-w-[250px]" />
       <div className="flex gap-8 pr-8">
-        {
-          menus.map(m => (
-            <Menu 
-              name={m}
-              selected={m === selectedMenu}
-              onClick={() => setSelectedMenu(m)}
-            />
-          ))
-        }
+        {menus.map(({ name, path }) => (
+          <Menu
+            key={name}
+            name={name}
+            path={path}
+            selected={location.pathname === path}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-function Menu({
-  name,
-  selected,
-  onClick
-}) {
+function Menu({ name, path, selected }) {
   return (
-    <p 
+    <Link
+      to={path}
       className={`
         font-medium ${!selected ? "text-white" : "text-on-primary"} cursor-pointer
-        text-sm select-none
+        text-sm select-none no-underline text-current
       `}
-      onClick={() => onClick(name)}
     >
       {name}
-    </p>
+    </Link>
   );
 }
