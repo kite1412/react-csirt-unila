@@ -21,9 +21,9 @@ const router = createBrowserRouter([
       { path: CSIRT_DEFINITION_PATH, element: <CsirtDefinition /> },
       { path: VISI_MISI_PATH, element: <VisiMisi /> },
       { path: LOGO_PATH, element: <LogoDefinition /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
-  { path: "*", element: <NotFoundPage /> },
 ]);
 
 export default router;

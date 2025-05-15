@@ -95,12 +95,12 @@ function DropdownMenu({ menu, location }) {
 
   return (
     <div
-      className=" relative"
+      className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
       <div
-        className={` font-medium text-sm cursor-pointer select-none ${
+        className={`font-medium text-sm cursor-pointer select-none ${
           isActive ? "text-on-primary" : "text-white"
         }`}
       >
@@ -119,7 +119,11 @@ function DropdownMenu({ menu, location }) {
             <Link
               key={sub.name}
               to={sub.path}
-              className="block px-4 py-2 text-bold font-medium text-white hover:bg-white/10 transition-colors duration-200"
+              className={`block px-4 py-2 font-medium transition-colors duration-200 ${
+                location.pathname === sub.path
+                  ? "text-on-primary bg-white/10"
+                  : "text-white hover:bg-white/10"
+              }`}
             >
               {sub.name}
             </Link>
