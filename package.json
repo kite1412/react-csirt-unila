@@ -11,6 +11,7 @@
     "prettier": "prettier --write \"**/*.+(js|json|jsx)\""
   },
   "dependencies": {
+    "chart.js": "^4.4.9",
     "csirt-unila": "file:",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

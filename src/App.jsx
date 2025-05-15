@@ -1,25 +1,21 @@
-import MainLayout from "./layout/MainLayout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import CsirtDefinition from "./pages/CsirtDefinition";
+// import MainLayout from "./layout/MainLayout";
+
+// function App() {
+//   return (
+//     <div className="w-screen h-screen bg-white">
+//       <MainLayout>asdsd</MainLayout>
+//     </div>
+//   );
+// }
+
+// export default App;
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
 
 function App() {
   return (
-    <div className="w-screen h-screen bg-white">
-      <BrowserRouter>
-        <MainLayout>
-          <Routes>
-            <Route
-              path="/"
-              element={<Home />}
-            />
-            <Route
-              path="/profile/csirt"
-              element={<CsirtDefinition />}
-            />
-          </Routes>
-        </MainLayout>
-      </BrowserRouter>
+    <div className="w-screen h-screen bg-blue-500 overflow-x-hidden overflow-y-auto flex justify-center">
+      <RouterProvider router={router} />
     </div>
   );
 }
