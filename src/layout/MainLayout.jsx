@@ -7,13 +7,13 @@ export default function MainLayout({ children }) {
     <div className="size-full grid grid-rows-[1fr_6fr]">
       <Header />
       <div className="flex flex-col jsutify-between overflow-auto gap-2">
-        <div 
+        <div
           className="text-black h-full w-full"
           style={{
-            ...contentHorizontalPadding
+            ...contentHorizontalPadding,
           }}
         >
-          {children} 
+          {children}
         </div>
         <Footer />
       </div>

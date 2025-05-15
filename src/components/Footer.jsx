@@ -2,12 +2,10 @@ import contentHorizontalPadding from "../styles/contentHorizontalPadding";
 import UnilaLogo from "../assets/unilaLogo.svg?react";
 import LogoSmall from "../assets/logoSmall.svg?react";
 
-export default function Footer({
-  className = ""
-}) {
+export default function Footer({ className = "" }) {
   const iconSize = {
     maxWidth: "70px",
-    aspectRatio: "1/1"
+    aspectRatio: "1/1",
   };
 
   return (
@@ -18,8 +16,8 @@ export default function Footer({
       style={{
         ...contentHorizontalPadding,
         ...{
-          background: "linear-gradient(178deg, white 25%, #081423 26%)"
-        }
+          background: "linear-gradient(178deg, white 25%, #081423 26%)",
+        },
       }}
     >
       <div>
