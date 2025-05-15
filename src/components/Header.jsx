@@ -20,7 +20,7 @@ export default function Header({ className = "" }) {
   return (
     <div
       className={`
-        flex w-full justify-between items-center ${className} bg-[#081423] absolute
+        flex w-full h-fit justify-between items-center ${className} bg-[#081423] absolute z-99
       `}
       style={{
         ...contentHorizontalPadding,
@@ -35,7 +35,11 @@ export default function Header({ className = "" }) {
             key={name}
             name={name}
             path={path}
-            selected={location.pathname === path}
+            selected={
+              path === "/"
+                ? location.pathname === "/"
+                : location.pathname.startsWith(path)
+            }
           />
         ))}
       </div>
