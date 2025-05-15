@@ -1,18 +1,37 @@
-import LogoLarge from "../assets/logoLarge.svg?react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import LogoLarge from "../assets/logoLarge.svg?react";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
-import HeaderBg from "../assets/headerBg.svg?react";
-import headerBg from "../assets/headerBg.svg";
+import {
+  CSIRT_DEFINITION_PATH,
+  HOME_PATH,
+  KONTAK_KAMI_PATH,
+  LAPORAN_INSIDEN_PATH,
+  LAYANAN_PATH,
+  LOGO_PATH,
+  PANDUAN_PATH,
+  RFC_PATH,
+  VISI_MISI_PATH,
+} from "../utils/paths";
 
 const menus = [
-  { name: "Beranda", path: "/" },
-  { name: "Profil", path: "/profile" },
-  { name: "RFC 2350", path: "/rfc" },
-  { name: "Layanan", path: "/layanan" },
-  { name: "Panduan", path: "/panduan" },
-  { name: "Laporan Insiden", path: "/laporan" },
-  { name: "Kontak Kami", path: "/kontak" },
+  { name: "Beranda", path: HOME_PATH },
+  {
+    name: "Profil",
+    submenu: [
+      { name: "Definisi CSIRT?", path: CSIRT_DEFINITION_PATH },
+      { name: "Visi dan Misi", path: VISI_MISI_PATH },
+      { name: "Definisi Logo", path: LOGO_PATH },
+    ],
+  },
+  { name: "RFC 2350", path: RFC_PATH },
+  { name: "Layanan", path: LAYANAN_PATH },
+  { name: "Panduan", path: PANDUAN_PATH },
+  { name: "Laporan Insiden", path: LAPORAN_INSIDEN_PATH },
+  { name: "Kontak Kami", path: KONTAK_KAMI_PATH },
 ];
+
+const unclipBackgroundMenus = [HOME_PATH];
 
 export default function Header({ className = "" }) {
   const location = useLocation();
@@ -20,24 +39,36 @@ export default function Header({ className = "" }) {
   return (
     <div
       className={`
-        flex w-full justify-between items-center ${className} bg-[#081423] absolute
+        z-[99] flex w-full justify-between items-center ${className} absolute
       `}
       style={{
         ...contentHorizontalPadding,
-        // background: "linear-gradient(178.5deg, #081423 75%, white 76%)",
-        clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
+        background: `${
+          unclipBackgroundMenus.includes(location.pathname)
+            ? "#081423"
+            : "linear-gradient(179deg, #081423 80%, white 81%)"
+        }`,
       }}
     >
       <LogoLarge className="aspect-3/2 max-w-[250px]" />
       <div className="flex gap-8 pr-8">
-        {menus.map(({ name, path }) => (
-          <Menu
-            key={name}
-            name={name}
-            path={path}
-            selected={location.pathname === path}
-          />
-        ))}
+        {menus.map((menu) =>
+          menu.submenu ? (
+            <DropdownMenu
+              className=""
+              key={menu.name}
+              menu={menu}
+              location={location}
+            />
+          ) : (
+            <Menu
+              key={menu.name}
+              name={menu.name}
+              path={menu.path}
+              selected={location.pathname === menu.path}
+            />
+          )
+        )}
       </div>
     </div>
   );
@@ -54,5 +85,47 @@ function Menu({ name, path, selected }) {
     >
       {name}
     </Link>
+  );
+}
+
+function DropdownMenu({ menu, location }) {
+  const [open, setOpen] = useState(false);
+
+  const isActive = menu.submenu.some((sub) => sub.path === location.pathname);
+
+  return (
+    <div
+      className=" relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <div
+        className={` font-medium text-sm cursor-pointer select-none ${
+          isActive ? "text-on-primary" : "text-white"
+        }`}
+      >
+        {menu.name}
+      </div>
+
+      <div className="absolute top-full left-0 mt-2">
+        <div
+          className={`w-48 bg-[#081423] shadow-lg rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform ${
+            open
+              ? "opacity-100 scale-100 pointer-events-auto"
+              : "opacity-0 scale-95 pointer-events-none"
+          }`}
+        >
+          {menu.submenu.map((sub) => (
+            <Link
+              key={sub.name}
+              to={sub.path}
+              className="block px-4 py-2 text-bold font-medium text-white hover:bg-white/10 transition-colors duration-200"
+            >
+              {sub.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
