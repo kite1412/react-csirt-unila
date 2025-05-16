@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
 import ReportPage from "../pages/ReportPage";
 import ReportFormPage from "../pages/ReportFormPage";
+import ContactPage from "../pages/ContactPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
 const router = createBrowserRouter([
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+      { path: "kontak", element: <ContactPage /> },
     ],
   },
   { path: "*", element: <NotFoundPage /> },
