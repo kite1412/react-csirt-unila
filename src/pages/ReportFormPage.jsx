@@ -26,6 +26,10 @@ const ReportFormPage = () => {
     //submission logic
   };
 
+  const isFormValid = Object.values(formData).every(
+    (value) => value.trim() !== ""
+  );
+
   return (
     <div className="flex flex-col justify-center items-center pt-25 pb-10 gap-10 bg-white px-50">
       <h1 className="font-semibold text-black text-2xl">
@@ -190,8 +194,9 @@ const ReportFormPage = () => {
               type="submit"
               className="flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200"
               style={{
-                background:
-                  "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
+                background: isFormValid
+                  ? "linear-gradient(230deg,rgba(39, 163, 157, 1) 0%, rgba(8, 20, 35, 1) 100%)"
+                  : "linear-gradient(230deg,rgba(39, 163, 157, 0.7) 0%, rgba(8, 20, 35, 0.7) 100%)",
               }}
             >
               <SubmitIcon />
