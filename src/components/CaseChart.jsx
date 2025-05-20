@@ -18,7 +18,7 @@ ChartJS.register(
   Legend
 );
 
-function CaseChart() {
+function CaseChart({ className }) {
   const data = {
     labels: [
       "Jan",
@@ -94,7 +94,12 @@ function CaseChart() {
   };
 
   return (
-    <div className="w-fit flex gap-5 px-5 rounded-xl shadow-sm shadow-black/30 justify-center items-center">
+    <div
+      className={`
+      w-fit flex gap-5 px-5 rounded-xl shadow-sm shadow-black/30 justify-center items-center
+      ${className}
+    `}
+    >
       <div className="w-2xl flex h-50">
         <Bar
           data={data}

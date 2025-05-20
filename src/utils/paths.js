@@ -1,0 +1,9 @@
+export const HOME_PATH = "/";
+export const CSIRT_DEFINITION_PATH = "/profile/definisi";
+export const VISI_MISI_PATH = "/profile/visi-misi";
+export const LOGO_PATH = "/profile/logo";
+export const RFC_PATH = "/rfc";
+export const LAYANAN_PATH = "/layanan";
+export const PANDUAN_PATH = "/panduan";
+export const LAPORAN_INSIDEN_PATH = "/laporan";
+export const KONTAK_KAMI_PATH = "/kontak";
