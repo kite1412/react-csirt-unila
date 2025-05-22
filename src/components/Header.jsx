@@ -31,7 +31,7 @@ const menus = [
   { name: "Kontak Kami", path: KONTAK_KAMI_PATH },
 ];
 
-const unclipBackgroundMenus = [HOME_PATH];
+const unclipBackgroundMenus = [HOME_PATH, KONTAK_KAMI_PATH];
 
 export default function Header({ className = "" }) {
   const location = useLocation();
@@ -55,7 +55,6 @@ export default function Header({ className = "" }) {
         {menus.map((menu) =>
           menu.submenu ? (
             <DropdownMenu
-              className=""
               key={menu.name}
               menu={menu}
               location={location}
@@ -90,30 +89,35 @@ function Menu({ name, path, selected }) {
 
 function DropdownMenu({ menu, location }) {
   const [open, setOpen] = useState(false);
+  const [dropdownHovered, setDropdownHovered] = useState(false);
 
   const isActive = menu.submenu.some((sub) => sub.path === location.pathname);
 
   return (
     <div
       className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
     >
       <div
         className={`font-medium text-sm cursor-pointer select-none ${
           isActive ? "text-on-primary" : "text-white"
         }`}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setTimeout(() => {
+          if (!dropdownHovered) setOpen(false);
+        }, 100)}
       >
         {menu.name}
       </div>
 
-      <div className="absolute top-full left-0 mt-2">
+      <div className="absolute top-full left-0 mt-1">
         <div
           className={`w-48 bg-[#081423] shadow-lg rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform ${
-            open
+            open || dropdownHovered
               ? "opacity-100 scale-100 pointer-events-auto"
               : "opacity-0 scale-95 pointer-events-none"
           }`}
+          onMouseEnter={() => setDropdownHovered(true)}
+          onMouseLeave={() => setDropdownHovered(false)}
         >
           {menu.submenu.map((sub) => (
             <Link
@@ -124,6 +128,7 @@ function DropdownMenu({ menu, location }) {
                   ? "text-on-primary bg-white/10"
                   : "text-white hover:bg-white/10"
               }`}
+              onClick={() => setDropdownHovered(false)}
             >
               {sub.name}
             </Link>
