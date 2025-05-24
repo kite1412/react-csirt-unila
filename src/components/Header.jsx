@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import LogoLarge from "../assets/logoLarge.svg?react";
+import TriangleDown from "../assets/triangle-down.svg?react";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
 import {
   CSIRT_DEFINITION_PATH,
+  DOC_INFO_PATH,
   HOME_PATH,
   KONTAK_KAMI_PATH,
   LAPORAN_INSIDEN_PATH,
   LAYANAN_PATH,
+  LEGAL_BASIS_PATH,
   LOGO_PATH,
   PANDUAN_PATH,
-  RFC_PATH,
+  POLICY_PATH,
   VISI_MISI_PATH,
 } from "../utils/paths";
-import TriangleDown from "../assets/triangle-down.svg?react";
 
 const menus = [
   { name: "Beranda", path: HOME_PATH },
@@ -25,7 +27,14 @@ const menus = [
       { name: "Definisi Logo", path: LOGO_PATH },
     ],
   },
-  { name: "RFC 2350", path: RFC_PATH },
+  {
+    name: "RFC 2350",
+    submenu: [
+      { name: "Informasi Dokumen", path: DOC_INFO_PATH },
+      { name: "Dasar Hukum", path: LEGAL_BASIS_PATH },
+      { name: "Kebijakan", path: POLICY_PATH },
+    ],
+  },
   { name: "Layanan", path: LAYANAN_PATH },
   { name: "Panduan", path: PANDUAN_PATH },
   { name: "Laporan Insiden", path: LAPORAN_INSIDEN_PATH },
