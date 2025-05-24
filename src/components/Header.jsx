@@ -13,6 +13,7 @@ import {
   RFC_PATH,
   VISI_MISI_PATH,
 } from "../utils/paths";
+import TriangleDown from "../assets/triangle-down.svg?react";
 
 const menus = [
   { name: "Beranda", path: HOME_PATH },
@@ -96,13 +97,12 @@ function DropdownMenu({ menu, location }) {
   const [dropdownHovered, setDropdownHovered] = useState(false);
 
   const isActive = menu.submenu.some((sub) => sub.path === location.pathname);
+  const color = isActive ? "text-on-primary" : "text-white"
 
   return (
     <div className="relative">
       <div
-        className={`font-medium text-sm cursor-pointer select-none ${
-          isActive ? "text-on-primary" : "text-white"
-        }`}
+        className={`font-medium text-sm cursor-pointer select-none flex items-center ${color}`}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() =>
           setTimeout(() => {
@@ -111,6 +111,7 @@ function DropdownMenu({ menu, location }) {
         }
       >
         {menu.name}
+        <TriangleDown className={`size-[1rem] ${color}`} />
       </div>
 
       <div className="absolute top-full left-0 mt-1">
