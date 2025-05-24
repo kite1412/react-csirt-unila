@@ -9,7 +9,7 @@ import {
   DOC_INFO_PATH,
   GUIDE_PATH,
   HOME_PATH,
-  LAPORAN_INSIDEN_PATH,
+  REPORT_PATH,
   LEGAL_BASIS_PATH,
   LOGO_PATH,
   POLICY_PATH,
@@ -37,7 +37,7 @@ const menus = [
   },
   { name: "Layanan", path: SERVICES_PATH },
   { name: "Panduan", path: GUIDE_PATH },
-  { name: "Laporan Insiden", path: LAPORAN_INSIDEN_PATH },
+  { name: "Laporan Insiden", path: REPORT_PATH },
   { name: "Kontak Kami", path: CONTACT_PATH },
 ];
 

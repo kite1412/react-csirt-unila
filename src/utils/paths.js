@@ -10,5 +10,6 @@ export const LEGAL_BASIS_PATH = RFC_BASE_PATH + "/dasar-hukum";
 export const POLICY_PATH = RFC_BASE_PATH + "/kebijakan";
 export const SERVICES_PATH = "/layanan";
 export const GUIDE_PATH = "/panduan";
-export const LAPORAN_INSIDEN_PATH = "/laporan";
 export const CONTACT_PATH = "/kontak";
+export const REPORT_PATH = "/laporan";
+export const REPORT_FORM_PATH = REPORT_PATH + "/form-pengaduan-insiden";

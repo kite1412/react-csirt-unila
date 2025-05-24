@@ -13,6 +13,8 @@ import {
   CONTACT_PATH,
   CSIRT_DEFINITION_PATH,
   LOGO_PATH,
+  REPORT_FORM_PATH,
+  REPORT_PATH,
   SERVICES_PATH,
   VISION_MISSION_PATH,
 } from "../utils/paths";
@@ -24,14 +26,14 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       {
-        path: "laporan",
+        path: REPORT_PATH,
         children: [
           {
-            path: "", // /laporan
+            path: "",
             element: <ReportPage />,
           },
           {
-            path: "form-pengaduan-insiden", // /laporan/form-pengaduan-insiden
+            path: REPORT_FORM_PATH,
             element: <ReportFormPage />,
           },
         ],
