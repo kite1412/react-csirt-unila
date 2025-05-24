@@ -4,17 +4,17 @@ import LogoLarge from "../assets/logoLarge.svg?react";
 import TriangleDown from "../assets/triangle-down.svg?react";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
 import {
+  CONTACT_PATH,
   CSIRT_DEFINITION_PATH,
   DOC_INFO_PATH,
+  GUIDE_PATH,
   HOME_PATH,
-  KONTAK_KAMI_PATH,
   LAPORAN_INSIDEN_PATH,
-  LAYANAN_PATH,
   LEGAL_BASIS_PATH,
   LOGO_PATH,
-  PANDUAN_PATH,
   POLICY_PATH,
-  VISI_MISI_PATH,
+  SERVICES_PATH,
+  VISION_MISSION_PATH,
 } from "../utils/paths";
 
 const menus = [
@@ -23,7 +23,7 @@ const menus = [
     name: "Profil",
     submenu: [
       { name: "Definisi CSIRT?", path: CSIRT_DEFINITION_PATH },
-      { name: "Visi dan Misi", path: VISI_MISI_PATH },
+      { name: "Visi dan Misi", path: VISION_MISSION_PATH },
       { name: "Definisi Logo", path: LOGO_PATH },
     ],
   },
@@ -35,13 +35,13 @@ const menus = [
       { name: "Kebijakan", path: POLICY_PATH },
     ],
   },
-  { name: "Layanan", path: LAYANAN_PATH },
-  { name: "Panduan", path: PANDUAN_PATH },
+  { name: "Layanan", path: SERVICES_PATH },
+  { name: "Panduan", path: GUIDE_PATH },
   { name: "Laporan Insiden", path: LAPORAN_INSIDEN_PATH },
-  { name: "Kontak Kami", path: KONTAK_KAMI_PATH },
+  { name: "Kontak Kami", path: CONTACT_PATH },
 ];
 
-const unclipBackgroundMenus = [HOME_PATH, KONTAK_KAMI_PATH];
+const unclipBackgroundMenus = [HOME_PATH, CONTACT_PATH];
 
 export default function Header({ className = "" }) {
   const location = useLocation();

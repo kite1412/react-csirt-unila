@@ -1,11 +1,9 @@
-import LogoSmall from "../assets/logoSmall.svg?react";
-import TextBox from "../components/TextBox";
 import TextBoxWidth from "../components/TextBoxWidth";
-import Proaktif from "../components/Proaktif";
-import Reaktif from "../components/reaktif";
-import CyberSec from "../components/CyberSec";
+import ReactiveIcon from "../assets/reactiveIcon.svg?react";
+import CyberIcon from "../assets/cyberIcon.svg?react";
+import ProactiveIcon from "../assets/proactiveIcon.svg?react";
 
-export default function Layanan() {
+export default function ServicePage() {
   return (
     <div className="mt-25 p-20">
       <h3 className="text-center font-bold text-2xl mb-15">
@@ -98,6 +96,63 @@ export default function Layanan() {
             </>
           }
         />
+      </div>
+    </div>
+  );
+}
+
+function Reaktif() {
+  return (
+    <div
+      className="w-full h-fit rounded-xl flex flex-col items-center justify-between py-5 text-white"
+      style={{
+        background:
+          "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
+      }}
+    >
+      <ReactiveIcon className="w-16 h-16 mb-5" />
+      <div className="text-center font-semibold">
+        Layanan Reaktif
+        <br />
+        (Reactive Services)
+      </div>
+    </div>
+  );
+}
+
+function Proaktif() {
+  return (
+    <div
+      className="w-full h-fit rounded-xl flex flex-col items-center justify-between py-5 text-white"
+      style={{
+        background:
+          "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
+      }}
+    >
+      <ProactiveIcon className="w-16 h-16 mb-5" />
+      <div className="text-center font-semibold">
+        Layanan Proaktif
+        <br />
+        (Proactive Services)
+      </div>
+    </div>
+  );
+}
+
+function CyberSec() {
+  return (
+    <div
+      className="w-full h-fit rounded-xl flex flex-col items-center justify-between py-5 text-white"
+      style={{
+        background:
+          "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
+      }}
+    >
+      <CyberIcon className="w-16 h-16 mb-5" />
+      <div className="text-center font-semibold">
+        Pengelolaan Keamanan Siber
+        <br />
+        (Security Management Services)
       </div>
     </div>
   );

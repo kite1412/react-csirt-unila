@@ -1,6 +1,6 @@
-function TextBox({ paragraph, children, title, className = "" }) {
+function TextBox({ paragraph, title, className = "" }) {
   return (
-    <div>
+    <div className={`${className}`}>
       <div className="flex justify-center items-center m-15">
         <div
           className="border-1 border-black rounded-2xl p-8"

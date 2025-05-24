@@ -2,19 +2,19 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import ContactPage from "../pages/ContactPage";
 import HomePage from "../pages/HomePage";
-import LayananPage from "../pages/LayananPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import LogoDefinitionPage from "../pages/profile/LogoDefinitionPage";
 import CsirtDefinitionPage from "../pages/profile/CsirtDefinitionPage";
-import VisiMisiPage from "../pages/profile/VisiMisiPage";
+import LogoDefinitionPage from "../pages/profile/LogoDefinitionPage";
+import VisionMissionPage from "../pages/profile/VisionMissionPage";
 import ReportFormPage from "../pages/ReportFormPage";
 import ReportPage from "../pages/ReportPage";
+import ServicesPage from "../pages/ServicesPage";
 import {
+  CONTACT_PATH,
   CSIRT_DEFINITION_PATH,
-  KONTAK_KAMI_PATH,
-  LAYANAN_PATH,
   LOGO_PATH,
-  VISI_MISI_PATH,
+  SERVICES_PATH,
+  VISION_MISSION_PATH,
 } from "../utils/paths";
 
 const router = createBrowserRouter([
@@ -36,11 +36,11 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: KONTAK_KAMI_PATH, element: <ContactPage /> },
+      { path: CONTACT_PATH, element: <ContactPage /> },
       { path: CSIRT_DEFINITION_PATH, element: <CsirtDefinitionPage /> },
-      { path: VISI_MISI_PATH, element: <VisiMisiPage /> },
+      { path: VISION_MISSION_PATH, element: <VisionMissionPage /> },
       { path: LOGO_PATH, element: <LogoDefinitionPage /> },
-      { path: LAYANAN_PATH, element: <LayananPage /> },
+      { path: SERVICES_PATH, element: <ServicesPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },

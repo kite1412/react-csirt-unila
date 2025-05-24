@@ -1,6 +1,6 @@
 import TextBox from "../../components/TextBox";
 
-export default function VisiMisiPage() {
+export default function VisionMissionPage() {
   return (
     <div className="mt-25 ml-25">
       <h3 className="ml-27 font-bold text-2xl">VISI & MISI</h3>
