@@ -7,7 +7,7 @@ import CyberSec from "../components/CyberSec";
 
 export default function Layanan() {
   return (
-    <div className="mt-25 ml-25">
+    <div className="mt-25 p-20">
       <h3 className="text-center font-bold text-2xl mb-15">
         LAYANAN CSIRT UNILA
       </h3>

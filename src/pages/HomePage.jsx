@@ -11,12 +11,16 @@ import IncidentLog from "../components/IncidentLog";
 import incidentData from "../mocks/incidentData";
 import UnilaWebsites from "../components/UnilaWebsites";
 import unilaSitesData from "../mocks/unilaSitesData";
-import Proaktif from "../components/proaktif";
 
 function HomePage() {
   return (
     <div className=" flex flex-col bg-white gap-50 pb-50">
-      <div className=" h-fit flex pt-25 pb-50 px-20 bg-[#081423] justify-between">
+      <div
+        className="h-fit flex pt-25 pb-50 px-20 bg-[#081423] justify-between"
+        style={{
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 80%)",
+        }}
+      >
         <div className="text-white flex flex-col justify-around">
           <div className="gradient-text">
             <h1 className="text-4xl font-semibold">
@@ -51,8 +55,6 @@ function HomePage() {
           className="w-sm h-auto"
         />
       </div>
-
-      <Proaktif />
 
       <div className="w-full h-fit flex flex-col items-center px-20 gap-10 text-white">
         <h1 className="font-semibold text-black text-2xl">LAYANAN KAMI</h1>
@@ -102,13 +104,13 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="w-full flex h-50 flex-col items-center px-20 gap-10 ">
+      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 ">
         <h1 className="font-semibold text-black text-2xl">
           STATISTIK KEAMANAN WEBSITE UNILA
         </h1>
-        <div className="flex gap-10 w-full justify-center items-center">
-          <CaseCountCard className="flex-2/5" />
-          <CaseChart className="flex-3/5" />
+        <div className="flex gap-10 w-full justify-center">
+          <CaseCountCard className="" />
+          <CaseChart className="" />
         </div>
       </div>
 

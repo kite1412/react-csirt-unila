@@ -3,14 +3,14 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function FacultyWebCaseCard({ facultyName, data1, data2 }) {
+function FacultyWebCaseCard({ facultyName, data1, data2, colors }) {
   const data = {
     // labels: ["Kasus Aktif", "Kasus Selesai"],
     datasets: [
       {
         data: [data1, data2],
-        backgroundColor: ["#081423", "#1DBBB7"],
-        borderWidth: 1,
+        backgroundColor: ["#FFFFFF", "#D3D3D3"],
+        borderWidth: 0,
       },
     ],
   };
@@ -32,10 +32,12 @@ function FacultyWebCaseCard({ facultyName, data1, data2 }) {
   };
 
   return (
-    <div className="flex gap-2 border-1 border-red-500 rounded-xl justify-between items-center w-3xs px-10 py-5 h-25">
-      <span className="font-semibold w-20">{facultyName}</span>
+    <div
+      className={`flex gap-2 bg-${colors}  rounded-xl justify-between items-center w-3xs px-10 py-5 h-25 bg--700 shadow-sm shadow-black/30`}
+    >
+      <span className="font-semibold w-20 text-white">{facultyName}</span>
       <div className="w-15 relative flex justify-center items-center">
-        <div className="absolute font-semibold text-xs">{total}</div>
+        <div className="absolute font-semibold text-xs text-white">{total}</div>
         <Doughnut
           data={data}
           options={options}
