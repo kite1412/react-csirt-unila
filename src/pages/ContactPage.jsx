@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SubmitIcon from "../assets/submitIcon.svg?react";
 import TeleponIcon from "../assets/teleponIcon.svg?react";
 import MailIcon from "../assets/mailIcon.svg?react";

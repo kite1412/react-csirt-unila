@@ -1,7 +1,6 @@
-import TextBox from "../components/TextBox";
-import LogoLarge from "../assets/logoLarge.svg?react";
+import LogoLarge from "../../assets/logoLarge.svg?react";
 
-function LogoDefinition() {
+function LogoDefinitionPage() {
   return (
     <div className="mt-25 ml-25">
       <h3 className="ml-27 font-bold text-2xl">DEFINISI LOGO</h3>
@@ -82,4 +81,4 @@ function LogoDefinition() {
   );
 }
 
-export default LogoDefinition;
+export default LogoDefinitionPage;

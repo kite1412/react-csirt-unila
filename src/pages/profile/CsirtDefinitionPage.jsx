@@ -1,6 +1,6 @@
-import LogoSmall from "../assets/logoSmall.svg?react";
+import LogoSmall from "../../assets/logoSmall.svg?react";
 
-function CsirtDefinition() {
+function CsirtDefinitionPage() {
   return (
     <div className="mt-25 ml-25">
       <h3 className="ml-27 font-bold text-2xl">DEFINISI CSIRT</h3>
@@ -38,4 +38,4 @@ function CsirtDefinition() {
     </div>
   );
 }
-export default CsirtDefinition;
+export default CsirtDefinitionPage;

@@ -1,7 +1,6 @@
-import LogoSmall from "../assets/logoSmall.svg?react";
-import TextBox from "../components/TextBox";
+import TextBox from "../../components/TextBox";
 
-export default function VisiMisi() {
+export default function VisiMisiPage() {
   return (
     <div className="mt-25 ml-25">
       <h3 className="ml-27 font-bold text-2xl">VISI & MISI</h3>
