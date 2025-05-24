@@ -73,7 +73,11 @@ export default function Header({ className = "" }) {
   );
 }
 
-function Menu({ name, path, selected }) {
+function Menu({ name, path }) {
+  const isRoot = path === "/";
+  const selected = isRoot
+    ? location.pathname === "/"
+    : location.pathname.startsWith(path);
   return (
     <Link
       to={path}
@@ -94,17 +98,17 @@ function DropdownMenu({ menu, location }) {
   const isActive = menu.submenu.some((sub) => sub.path === location.pathname);
 
   return (
-    <div
-      className="relative"
-    >
+    <div className="relative">
       <div
         className={`font-medium text-sm cursor-pointer select-none ${
           isActive ? "text-on-primary" : "text-white"
         }`}
         onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setTimeout(() => {
-          if (!dropdownHovered) setOpen(false);
-        }, 100)}
+        onMouseLeave={() =>
+          setTimeout(() => {
+            if (!dropdownHovered) setOpen(false);
+          }, 100)
+        }
       >
         {menu.name}
       </div>

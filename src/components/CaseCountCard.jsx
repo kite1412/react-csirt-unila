@@ -31,14 +31,9 @@ function CaseCountCard({ className }) {
   };
 
   return (
-    <div
-      className={`
-      w-full h-full py-5 px-20 flex flex-col justify-center items-center gap-2 rounded-xl shadow-sm shadow-black/30
-      ${className}
-    `}
-    >
+    <div className="w-full h-fit py-5 px-20 flex flex-col justify-center items-center gap-2 rounded-xl shadow-sm shadow-black/30">
       <h1 className="font-semibold">Jumlah Kasus</h1>
-      <div className="w-[80%] h-full relative flex justify-center items-center">
+      <div className="w-40 h-auto relative flex justify-center items-center">
         <div className="absolute font-semibold">{total}</div>
 
         <Doughnut
