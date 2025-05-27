@@ -13,6 +13,7 @@ import {
   CONTACT_PATH,
   CSIRT_DEFINITION_PATH,
   DOC_INFO_PATH,
+  LEGAL_BASIS_PATH,
   LOGO_PATH,
   REPORT_FORM_PATH,
   REPORT_PATH,
@@ -20,6 +21,7 @@ import {
   VISION_MISSION_PATH,
 } from "../utils/paths";
 import DocInfoPage from "../pages/rfc/DocInfoPage";
+import LegalBasisPage from "../pages/rfc/LegalBasisPage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,7 @@ const router = createBrowserRouter([
       { path: VISION_MISSION_PATH, element: <VisionMissionPage /> },
       { path: LOGO_PATH, element: <LogoDefinitionPage /> },
       { path: DOC_INFO_PATH, element: <DocInfoPage /> },
+      { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],

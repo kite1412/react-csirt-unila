@@ -1,6 +1,7 @@
 import GradientButton from "../../components/GradientButton";
 import ContentVerticalPadding from "../../layout/ContentVerticalPadding";
 import Download from "../../assets/download.svg?react";
+import RfcLayout from "./layout/RfcLayout";
 
 export default function DocInfoPage() {
   const pairs = [
@@ -15,8 +16,8 @@ export default function DocInfoPage() {
     { label: "Kadaluwarsa", value: "-" },
   ];
   
-  return <ContentVerticalPadding className="flex justify-center">
-    <div className="flex flex-col h-full gap-4 w-[80%]">
+  return <RfcLayout>
+    <div className="flex flex-col h-full gap-4">
       <h3 className="font-bold text-2xl">Informasi Dokumen</h3>
       <div className="flex gap-10 w-full">
         <div className="flex flex-col w-fit gap-4 items-center">
@@ -40,7 +41,7 @@ export default function DocInfoPage() {
         </div>
       </div>
     </div>
-  </ContentVerticalPadding>;
+  </RfcLayout>;
 }
 
 function Pair({ label, value }) {
