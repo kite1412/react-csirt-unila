@@ -44,7 +44,7 @@ function LegalBox({ legal, onSee, onDownload }) {
   return (
     <div className="border-1 border-primary rounded-[8px] p-4 flex justify-between items-center">
       <b className="flex-7/8">{legal}</b>
-      <div className="flex gap-3  text-on-primary">
+      <div className="flex gap-3 text-on-primary">
         <EyesFilled className={`${iconButton}`} onClick={onSee} />
         <Download className={`${iconButton} p-2`} onClick={onDownload}/>
       </div>

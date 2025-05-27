@@ -15,6 +15,7 @@ import {
   DOC_INFO_PATH,
   LEGAL_BASIS_PATH,
   LOGO_PATH,
+  POLICIES_PATH,
   REPORT_FORM_PATH,
   REPORT_PATH,
   SERVICES_PATH,
@@ -22,6 +23,7 @@ import {
 } from "../utils/paths";
 import DocInfoPage from "../pages/rfc/DocInfoPage";
 import LegalBasisPage from "../pages/rfc/LegalBasisPage";
+import PoliciesPage from "../pages/rfc/PoliciesPage";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,7 @@ const router = createBrowserRouter([
       { path: LOGO_PATH, element: <LogoDefinitionPage /> },
       { path: DOC_INFO_PATH, element: <DocInfoPage /> },
       { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
+      { path: POLICIES_PATH, element: <PoliciesPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],

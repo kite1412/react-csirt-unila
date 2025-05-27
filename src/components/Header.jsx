@@ -4,17 +4,17 @@ import LogoLarge from "../assets/logoLarge.svg?react";
 import TriangleDown from "../assets/triangle-down.svg?react";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
 import {
-  CONTACT_PATH,
-  CSIRT_DEFINITION_PATH,
-  DOC_INFO_PATH,
-  GUIDE_PATH,
-  HOME_PATH,
-  REPORT_PATH,
-  LEGAL_BASIS_PATH,
-  LOGO_PATH,
-  POLICY_PATH,
-  SERVICES_PATH,
-  VISION_MISSION_PATH,
+    CONTACT_PATH,
+    CSIRT_DEFINITION_PATH,
+    DOC_INFO_PATH,
+    GUIDE_PATH,
+    HOME_PATH,
+    LEGAL_BASIS_PATH,
+    LOGO_PATH,
+    POLICIES_PATH,
+    REPORT_PATH,
+    SERVICES_PATH,
+    VISION_MISSION_PATH,
 } from "../utils/paths";
 
 const menus = [
@@ -32,7 +32,7 @@ const menus = [
     submenu: [
       { name: "Informasi Dokumen", path: DOC_INFO_PATH },
       { name: "Dasar Hukum", path: LEGAL_BASIS_PATH },
-      { name: "Kebijakan", path: POLICY_PATH },
+      { name: "Kebijakan", path: POLICIES_PATH },
     ],
   },
   { name: "Layanan", path: SERVICES_PATH },
