@@ -45,7 +45,7 @@ function ContactPage() {
         className="w-full h-120 bg-[#081423] absolute"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 80%, 0 100%)" }}
       ></div>
-      <h1 className="font-semibold text-white text-2xl z-1 pt-25">
+      <h1 className="font-semibold text-white text-2xl z-1 pt-10">
         KONTAK KAMI
       </h1>
 

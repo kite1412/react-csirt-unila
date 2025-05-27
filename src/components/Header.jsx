@@ -49,7 +49,7 @@ export default function Header({ className = "" }) {
   return (
     <div
       className={`
-        z-[99] flex w-full justify-between items-center ${className} absolute
+        z-[99] flex w-full justify-between items-center ${className}
       `}
       style={{
         ...contentHorizontalPadding,

@@ -12,12 +12,14 @@ import ServicesPage from "../pages/ServicesPage";
 import {
   CONTACT_PATH,
   CSIRT_DEFINITION_PATH,
+  DOC_INFO_PATH,
   LOGO_PATH,
   REPORT_FORM_PATH,
   REPORT_PATH,
   SERVICES_PATH,
   VISION_MISSION_PATH,
 } from "../utils/paths";
+import DocInfoPage from "../pages/rfc/DocInfoPage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,7 @@ const router = createBrowserRouter([
       { path: CSIRT_DEFINITION_PATH, element: <CsirtDefinitionPage /> },
       { path: VISION_MISSION_PATH, element: <VisionMissionPage /> },
       { path: LOGO_PATH, element: <LogoDefinitionPage /> },
+      { path: DOC_INFO_PATH, element: <DocInfoPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],

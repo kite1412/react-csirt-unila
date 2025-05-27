@@ -1,7 +1,7 @@
 function TextBox({ paragraph, title, className = "" }) {
   return (
     <div className={`${className}`}>
-      <div className="flex justify-center items-center m-15">
+      <div className="flex justify-center items-center ">
         <div
           className="border-1 border-black rounded-2xl p-8"
           style={{

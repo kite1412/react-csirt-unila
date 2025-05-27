@@ -1,16 +1,15 @@
 import LogoSmall from "../../assets/logoSmall.svg?react";
+import ContentVerticalPadding from "../../layout/ContentVerticalPadding";
 
 function CsirtDefinitionPage() {
-  return (
-    <div className="mt-25 ml-25">
-      <h3 className="ml-27 font-bold text-2xl">DEFINISI CSIRT</h3>
-      <div className="flex justify-center items-center">
+  return <ContentVerticalPadding>
+    <div className="flex flex-col gap-6 w-fit mx-auto">
+      <h3 className="font-bold text-2xl">DEFINISI CSIRT</h3>
+
+      <div className="flex flex-col items-center gap-10">
         <div className="flex items-center justify-center bg-[#081423]  rounded-full w-[200px] h-[200px] scale-100">
           <LogoSmall className="w-[150px] h-[150px] " />
         </div>
-      </div>
-
-      <div className="flex justify-center items-center m-15">
         <div
           className="border-1 border-black rounded-2xl p-10"
           style={{
@@ -36,6 +35,6 @@ function CsirtDefinitionPage() {
         </div>
       </div>
     </div>
-  );
+  </ContentVerticalPadding>;
 }
 export default CsirtDefinitionPage;
