@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
       { path: POLICIES_PATH, element: <PoliciesPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
-      { path: GUIDE_PATH, element: <GuidePage /> },
+      // { path: GUIDE_PATH, element: <GuidePage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
