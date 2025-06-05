@@ -88,6 +88,7 @@ function HomePage() {
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
             }}
+            data-aos="zoom-in"
           >
             <ProactiveIcon />
             <div className="text-center font-semibold">
@@ -102,6 +103,7 @@ function HomePage() {
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
             }}
+            data-aos="zoom-in"
           >
             <ReactiveIcon />
             <div className="text-center font-semibold">
@@ -116,6 +118,7 @@ function HomePage() {
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
             }}
+            data-aos="zoom-in"
           >
             <CyberIcon />
             <div className="text-center font-semibold">
@@ -186,6 +189,7 @@ function UnilaWebsites({ unilaSites }) {
             background:
               "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
           }}
+          data-aos="zoom-in"
         >
           <span className="font-semibold text-xl">
             {unilaSite.name.toUpperCase()}
@@ -399,6 +403,7 @@ function FacultyWebCaseCard({ facultyName, data1, data2, colors }) {
   return (
     <div
       className={`flex gap-2 ${bgColorMap[colors] || "bg-gray-700"} rounded-xl justify-between items-center w-3xs px-10 py-5 h-25 shadow-sm shadow-black/30`}
+      data-aos="zoom-in"
     >
       <span className="font-semibold w-20 text-white">{facultyName}</span>
       <div className="w-15 relative flex justify-center items-center">
@@ -459,7 +464,10 @@ function IncidentLog({ incidents }) {
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {incidents.map((incident, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              className="hover:bg-gray-100 transition-colors duration-200"
+            >
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {index + 1}
               </td>
