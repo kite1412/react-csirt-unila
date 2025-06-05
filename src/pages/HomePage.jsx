@@ -20,6 +20,7 @@ import {
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import Marquee from "react-fast-marquee";
+import RandomText from "../components/RandomText";
 
 ChartJS.register(
   CategoryScale,
@@ -59,7 +60,7 @@ function HomePage() {
           </p>
           <Link
             to="/selengkapnya"
-            className="border-1 border-gray-100 w-fit h-fit py-2 px-8 rounded-xl font-semibold"
+            className="holographic-card border-1 border-white relative overflow-hidden flex items-center justify-center w-fit h-fit py-2 px-8 rounded-xl font-semibold transition-transform"
             style={{
               background:
                 "radial-gradient(circle at 53.63% 50.75%, #081423 30%, #1DBBB7 80%)",
@@ -180,7 +181,7 @@ function UnilaWebsites({ unilaSites }) {
           key={unilaSite.name}
           href={unilaSite.url}
           target="_blank"
-          className="w-full h-20 rounded-xl shadow-sm shadow-black/100 flex justify-between items-center px-20"
+          className="holographic-card w-full h-20 rounded-xl relative overflow-hidden shadow-sm shadow-black/100 flex justify-between items-center px-20 hover:scale-[1.02] transition-transform duration-500"
           style={{
             background:
               "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",

@@ -22,7 +22,7 @@ function ReportPage() {
           </p>
           <Link
             to="/laporan/form-pengaduan-insiden"
-            className="py-2 px-5 rounded-xl flex justify-center gap-2"
+            className="holographic-card relative overflow-hidden py-2 px-5 rounded-xl flex justify-center gap-2"
             style={{
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
@@ -125,7 +125,7 @@ function ReportPage() {
               />
               <Link
                 to="/laporan/form-pengaduan-insiden"
-                className="py-2 px-5 rounded-xl flex justify-center gap-2 text-white"
+                className="holographic-card relative overflow-hidden py-2 px-5 rounded-xl flex justify-center gap-2 text-white"
                 style={{
                   background:
                     "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
