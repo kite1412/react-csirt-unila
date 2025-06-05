@@ -20,10 +20,12 @@ import {
   REPORT_PATH,
   SERVICES_PATH,
   VISION_MISSION_PATH,
+  GUIDE_PATH,
 } from "../utils/paths";
 import DocInfoPage from "../pages/rfc/DocInfoPage";
 import LegalBasisPage from "../pages/rfc/LegalBasisPage";
 import PoliciesPage from "../pages/rfc/PoliciesPage";
+import GuidePage from "../pages/GuidePage";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,7 @@ const router = createBrowserRouter([
       { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
       { path: POLICIES_PATH, element: <PoliciesPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
+      { path: GUIDE_PATH, element: <GuidePage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
