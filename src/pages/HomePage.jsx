@@ -19,6 +19,7 @@ import {
   ArcElement,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import Marquee from "react-fast-marquee";
 
 ChartJS.register(
   CategoryScale,
@@ -74,7 +75,10 @@ function HomePage() {
         />
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 text-white">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10 text-white"
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">LAYANAN KAMI</h1>
         <div className="w-full flex justify-between gap-10">
           <div
@@ -122,7 +126,10 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 ">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10 "
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">
           STATISTIK KEAMANAN WEBSITE UNILA
         </h1>
@@ -132,19 +139,28 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 ">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10 "
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">
           KASUS WEBSITE FAKULTAS
         </h1>
         <FacultyWebCaseCards facultyData={facultyData} />
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10"
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">LOG INSIDEN</h1>
         <IncidentLog incidents={incidentData} />
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10"
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">
           WEBSITE DI UNIVERSITAS LAMPUNG
         </h1>
@@ -398,7 +414,7 @@ function FacultyWebCaseCard({ facultyName, data1, data2, colors }) {
 
 function IncidentLog({ incidents }) {
   return (
-    <div className="overflow-x-auto rounded-xl shadow-sm shadow-black/30 w-full p-10">
+    <div className=" rounded-xl shadow-sm shadow-black/30 w-full p-10">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-[#081423]">
           <tr>
