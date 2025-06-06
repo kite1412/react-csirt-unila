@@ -154,8 +154,20 @@ button:focus-visible {
   transform: rotate(-45deg) translateY(250%);
 }
 
-/* .holographic-card span,
-.holographic-card svg {
-  position: relative;
-  z-index: 2;
-} */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1DBBB7;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff4b51;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #242424;
+}
