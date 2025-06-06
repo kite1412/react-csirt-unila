@@ -10,7 +10,7 @@ export default function MainLayout() {
     AOS.init({ duration: 800, once: false, mirror: true });
   }, []);
   return (
-    <div className="w-full bg-white mx-auto relative flex flex-col">
+    <div className="max-w-screen-2xl w-full bg-white relative flex flex-col">
       <Header className="" />
       <div className="h-full flex flex-col justify-between">
         <div className="text-black">
