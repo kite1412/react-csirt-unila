@@ -11,11 +11,13 @@
     "prettier": "prettier --write \"**/*.+(js|json|jsx)\""
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "chart.js": "^4.4.9",
     "csirt-unila": "file:",
     "react": "^19.1.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "react-router-dom": "^7.6.0"
   },
   "devDependencies": {

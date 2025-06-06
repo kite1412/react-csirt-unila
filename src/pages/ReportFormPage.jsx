@@ -192,7 +192,11 @@ const ReportFormPage = () => {
           <div className="flex justify-center pt-15">
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200"
+              className={
+                isFormValid
+                  ? "holographic-card relative overflow-hidden flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200"
+                  : "flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200"
+              }
               style={{
                 background: isFormValid
                   ? "linear-gradient(230deg,rgba(39, 163, 157, 1) 0%, rgba(8, 20, 35, 1) 100%)"

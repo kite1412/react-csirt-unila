@@ -19,6 +19,8 @@ import {
   ArcElement,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import Marquee from "react-fast-marquee";
+import RandomText from "../components/RandomText";
 
 ChartJS.register(
   CategoryScale,
@@ -58,7 +60,7 @@ function HomePage() {
           </p>
           <Link
             to="/selengkapnya"
-            className="border-1 border-gray-100 w-fit h-fit py-2 px-8 rounded-xl font-semibold"
+            className="holographic-card border-1 border-white relative overflow-hidden flex items-center justify-center w-fit h-fit py-2 px-8 rounded-xl font-semibold transition-transform"
             style={{
               background:
                 "radial-gradient(circle at 53.63% 50.75%, #081423 30%, #1DBBB7 80%)",
@@ -74,7 +76,10 @@ function HomePage() {
         />
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 text-white">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10 text-white"
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">LAYANAN KAMI</h1>
         <div className="w-full flex justify-between gap-10">
           <div
@@ -83,6 +88,7 @@ function HomePage() {
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
             }}
+            data-aos="zoom-in"
           >
             <ProactiveIcon />
             <div className="text-center font-semibold">
@@ -97,6 +103,8 @@ function HomePage() {
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
             }}
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             <ReactiveIcon />
             <div className="text-center font-semibold">
@@ -111,6 +119,8 @@ function HomePage() {
               background:
                 "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
             }}
+            data-aos="zoom-in"
+            data-aos-delay="400"
           >
             <CyberIcon />
             <div className="text-center font-semibold">
@@ -122,7 +132,10 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 ">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10 "
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">
           STATISTIK KEAMANAN WEBSITE UNILA
         </h1>
@@ -132,19 +145,28 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10 ">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10 "
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">
           KASUS WEBSITE FAKULTAS
         </h1>
         <FacultyWebCaseCards facultyData={facultyData} />
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10"
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">LOG INSIDEN</h1>
         <IncidentLog incidents={incidentData} />
       </div>
 
-      <div className="w-full h-fit flex flex-col items-center px-20 gap-10">
+      <div
+        className="w-full h-fit flex flex-col items-center px-20 gap-10"
+        data-aos="fade-up"
+      >
         <h1 className="font-semibold text-black text-2xl">
           WEBSITE DI UNIVERSITAS LAMPUNG
         </h1>
@@ -159,22 +181,28 @@ export default HomePage;
 function UnilaWebsites({ unilaSites }) {
   return (
     <div className="grid grid-cols-3 place-items-center p-10 text-white w-full gap-15 rounded-xl shadow-sm shadow-black/30">
-      {unilaSites.map((unilaSite) => (
-        <a
-          key={unilaSite.name}
-          href={unilaSite.url}
-          target="_blank"
-          className="w-full h-20 rounded-xl shadow-sm shadow-black/100 flex justify-between items-center px-20"
-          style={{
-            background:
-              "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
-          }}
+      {unilaSites.map((unilaSite, index) => (
+        <div
+          data-aos="zoom-in"
+          data-aos-delay={index * 50}
+          className="w-full h-fit"
         >
-          <span className="font-semibold text-xl">
-            {unilaSite.name.toUpperCase()}
-          </span>
-          <LogoUnila className="w-15 h-auto" />
-        </a>
+          <a
+            key={unilaSite.name}
+            href={unilaSite.url}
+            target="_blank"
+            className="holographic-card w-full h-20 rounded-xl relative overflow-hidden shadow-sm shadow-black/100 flex justify-between items-center px-20 duration-200"
+            style={{
+              background:
+                "linear-gradient(270deg,rgba(19, 104, 109, 1) 30%, rgba(8, 20, 35, 1) 100%)",
+            }}
+          >
+            <span className="font-semibold text-xl">
+              {unilaSite.name.toUpperCase()}
+            </span>
+            <LogoUnila className="w-15 h-auto" />
+          </a>
+        </div>
       ))}
     </div>
   );
@@ -330,6 +358,7 @@ function FacultyWebCaseCards({ facultyData }) {
       {facultyData.map((item, index) => (
         <FacultyWebCaseCard
           key={index}
+          index={index}
           facultyName={item.facultyName}
           data1={item.data1}
           data2={item.data2}
@@ -340,7 +369,8 @@ function FacultyWebCaseCards({ facultyData }) {
   );
 }
 
-function FacultyWebCaseCard({ facultyName, data1, data2, colors }) {
+function FacultyWebCaseCard({ index, facultyName, data1, data2, colors }) {
+  console.log("FacultyWebCaseCard rendered with key:", index);
   const data = {
     // labels: ["Kasus Aktif", "Kasus Selesai"],
     datasets: [
@@ -382,6 +412,8 @@ function FacultyWebCaseCard({ facultyName, data1, data2, colors }) {
   return (
     <div
       className={`flex gap-2 ${bgColorMap[colors] || "bg-gray-700"} rounded-xl justify-between items-center w-3xs px-10 py-5 h-25 shadow-sm shadow-black/30`}
+      data-aos="zoom-in"
+      data-aos-delay={index * 50}
     >
       <span className="font-semibold w-20 text-white">{facultyName}</span>
       <div className="w-15 relative flex justify-center items-center">
@@ -398,7 +430,7 @@ function FacultyWebCaseCard({ facultyName, data1, data2, colors }) {
 
 function IncidentLog({ incidents }) {
   return (
-    <div className="overflow-x-auto rounded-xl shadow-sm shadow-black/30 w-full p-10">
+    <div className=" rounded-xl shadow-sm shadow-black/30 w-full p-10">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-[#081423]">
           <tr>
@@ -442,7 +474,12 @@ function IncidentLog({ incidents }) {
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {incidents.map((incident, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              className="hover:bg-gray-100 transition-colors duration-500"
+              data-aos="fade"
+              data-aos-delay="100"
+            >
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {index + 1}
               </td>

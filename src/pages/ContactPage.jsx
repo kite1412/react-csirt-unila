@@ -152,7 +152,11 @@ function ContactPage() {
           <div className="w-full flex justify-end px-5">
             <button
               type="submit"
-              className="w-fit h-fit flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200 my-5"
+              className={
+                isFormValid
+                  ? "holographic-card relative overflow-hidden w-fit h-fit flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200 my-5"
+                  : "w-fit h-fit flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full transition duration-200 my-5"
+              }
               style={{
                 background: isFormValid
                   ? "linear-gradient(230deg,rgba(39, 163, 157, 1) 0%, rgba(8, 20, 35, 1) 100%)"
