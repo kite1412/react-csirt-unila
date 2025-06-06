@@ -117,6 +117,14 @@ button:focus-visible {
   }
 }
 
+.bg-holo-gradient {
+  background: linear-gradient(
+    270deg,
+    rgba(19, 104, 109, 1) 30%,
+    rgba(8, 20, 35, 1) 100%
+  );
+}
+
 .holographic-card::before {
   content: "";
   position: absolute;
@@ -137,7 +145,7 @@ button:focus-visible {
 }
 
 .holographic-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
