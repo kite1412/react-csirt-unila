@@ -20,7 +20,7 @@ export default function Footer({ className = "" }) {
         },
       }}
     >
-      <div>
+      <div className="gradient-text">
         <p>Copyright © 2025</p>
         <p>UNILA-CSIRT TEAM</p>
       </div>

@@ -133,34 +133,46 @@ function HomePage() {
       </div>
 
       <div
-        className="w-full h-fit flex flex-col items-center px-20 gap-10 "
-        data-aos="fade-up"
+        className="w-full flex flex-col gap-50 bg-primary py-50"
+        style={{
+          clipPath: "polygon(100% 8%, 0 0%, 0% 100%, 100% 95%)",
+        }}
       >
-        <h1 className="font-semibold text-black text-2xl">
-          STATISTIK KEAMANAN WEBSITE UNILA
-        </h1>
-        <div className="flex gap-10 w-full justify-center">
-          <CaseCountCard className="" />
-          <CaseChart className="" />
+        <div
+          className="w-full h-fit flex flex-col items-center px-20 gap-10"
+          data-aos="fade-up"
+          // style={{
+          //   clipPath: "polygon(100% 20%, 0 0%, 0% 100%, 100% 80%)",
+          // }}
+        >
+          <h1 className="font-semibold text-white text-shadow-xs text-shadow-on-primary/50 text-2xl">
+            STATISTIK KEAMANAN WEBSITE UNILA
+          </h1>
+          <div className="flex gap-10 w-full justify-center">
+            <CaseCountCard className="" />
+            <CaseChart className="" />
+          </div>
         </div>
-      </div>
 
-      <div
-        className="w-full h-fit flex flex-col items-center px-20 gap-10 "
-        data-aos="fade-up"
-      >
-        <h1 className="font-semibold text-black text-2xl">
-          KASUS WEBSITE FAKULTAS
-        </h1>
-        <FacultyWebCaseCards facultyData={facultyData} />
-      </div>
+        <div
+          className="w-full h-fit flex flex-col items-center px-20 gap-10 "
+          data-aos="fade-up"
+        >
+          <h1 className="font-semibold text-white text-shadow-xs text-shadow-on-primary/50 text-2xl">
+            KASUS WEBSITE FAKULTAS
+          </h1>
+          <FacultyWebCaseCards facultyData={facultyData} />
+        </div>
 
-      <div
-        className="w-full h-fit flex flex-col items-center px-20 gap-10"
-        data-aos="fade-up"
-      >
-        <h1 className="font-semibold text-black text-2xl">LOG INSIDEN</h1>
-        <IncidentLog incidents={incidentData} />
+        <div
+          className="w-full h-fit flex flex-col items-center px-20 gap-10"
+          data-aos="fade-up"
+        >
+          <h1 className="font-semibold text-white text-shadow-xs text-shadow-on-primary/50 text-2xl">
+            LOG INSIDEN
+          </h1>
+          <IncidentLog incidents={incidentData} />
+        </div>
       </div>
 
       <div
@@ -209,6 +221,12 @@ function UnilaWebsites({ unilaSites }) {
 }
 
 function CaseChart() {
+  const randomArray = (length, min = 60, max = 100) =>
+    Array.from(
+      { length },
+      () => Math.floor(Math.random() * (max - min + 1)) + min
+    );
+
   const data = {
     labels: [
       "Jan",
@@ -227,18 +245,18 @@ function CaseChart() {
     datasets: [
       {
         label: "Konten Positif",
-        data: [86, 85, 86, 87, 86, 86, 86, 85, 86, 87, 86, 86],
-        backgroundColor: "#283747", // Warna untuk konten positif (dark teal)
+        data: randomArray(12, 80, 100),
+        backgroundColor: "#283747",
       },
       {
         label: "Konten Negatif",
-        data: [64, 63, 64, 63, 64, 63, 64, 63, 64, 63, 64, 63],
-        backgroundColor: "#17A589", // Warna untuk konten negatif (teal)
+        data: randomArray(12, 60, 80),
+        backgroundColor: "#17A589",
       },
       {
         label: "Keamanan",
-        data: [94, 93, 94, 94, 94, 94, 94, 93, 94, 94, 94, 94],
-        backgroundColor: "#081423", // Warna untuk keamanan (dark blue)
+        data: randomArray(12, 90, 100),
+        backgroundColor: "#081423",
       },
     ],
   };
@@ -284,7 +302,7 @@ function CaseChart() {
   };
 
   return (
-    <div className="w-fit flex gap-5 px-5 rounded-xl shadow-sm shadow-black/30 justify-center items-center">
+    <div className="w-fit flex gap-5 px-5 rounded-xl shadow-[0_0_20px_rgba(0,255,255,0.6)] justify-center items-center bg-white">
       <div className="w-2xl flex h-50">
         <Bar
           data={data}
@@ -337,7 +355,7 @@ function CaseCountCard() {
   };
 
   return (
-    <div className="w-full h-fit py-5 px-20 flex flex-col justify-center items-center gap-2 rounded-xl shadow-sm shadow-black/30">
+    <div className="w-full h-fit py-5 px-20 flex flex-col justify-center items-center gap-2 rounded-xl shadow-[0_0_20px_rgba(0,255,255,0.6)] bg-white">
       <h1 className="font-semibold">Jumlah Kasus</h1>
       <div className="w-40 h-auto relative flex justify-center items-center">
         <div className="absolute font-semibold">{total}</div>
@@ -354,7 +372,7 @@ function CaseCountCard() {
 
 function FacultyWebCaseCards({ facultyData }) {
   return (
-    <div className="grid grid-cols-4 gap-10 w-full rounded-xl shadow-sm shadow-black/30 p-10 place-items-center ">
+    <div className="grid grid-cols-4 gap-10 w-full rounded-xl shadow-[0_0_20px_rgba(0,255,255,0.6)] p-10 place-items-center bg-white">
       {facultyData.map((item, index) => (
         <FacultyWebCaseCard
           key={index}
@@ -386,6 +404,7 @@ function FacultyWebCaseCard({ index, facultyName, data1, data2, colors }) {
 
   const options = {
     cutout: "60%",
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -415,7 +434,7 @@ function FacultyWebCaseCard({ index, facultyName, data1, data2, colors }) {
       data-aos="zoom-in"
       data-aos-delay={index * 50}
     >
-      <span className="font-semibold w-20 text-white">{facultyName}</span>
+      <span className="font-semibold w-15 text-white">{facultyName}</span>
       <div className="w-15 relative flex justify-center items-center">
         <div className="absolute font-semibold text-xs text-white">{total}</div>
         <Doughnut
@@ -430,7 +449,7 @@ function FacultyWebCaseCard({ index, facultyName, data1, data2, colors }) {
 
 function IncidentLog({ incidents }) {
   return (
-    <div className=" rounded-xl shadow-sm shadow-black/30 w-full p-10">
+    <div className=" rounded-xl shadow-[0_0_20px_rgba(0,255,255,0.6)] w-full p-10 bg-white">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-[#081423]">
           <tr>
