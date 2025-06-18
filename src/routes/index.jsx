@@ -9,12 +9,22 @@ import VisionMissionPage from "../pages/profile/VisionMissionPage";
 import ReportFormPage from "../pages/ReportFormPage";
 import ReportPage from "../pages/ReportPage";
 import ServicesPage from "../pages/ServicesPage";
+import LoginPage from "../pages/LoginPage";
+import DashboardPage from "../pages/DashboardPage";
+import ProtectedRoute from "./ProtectedRoute";
+import AdminRoute from "./AdminRoute";
+import AdminPage from "../pages/AdminPage";
+import DashboardReportsPage from "../pages/admin/DashboardReportsPage";
+import DashboardUsersPage from "../pages/admin/DashboardUsersPage";
+import DashboardSettingsPage from "../pages/admin/DashboardSettingsPage";
 import {
   CONTACT_PATH,
   CSIRT_DEFINITION_PATH,
+  DASHBOARD_PATH,
   DOC_INFO_PATH,
   LEGAL_BASIS_PATH,
   LOGO_PATH,
+  LOGIN_PATH,
   POLICIES_PATH,
   REPORT_FORM_PATH,
   REPORT_PATH,
@@ -29,21 +39,51 @@ import GuidePage from "../pages/GuidePage";
 
 const router = createBrowserRouter([
   {
+    path: LOGIN_PATH,
+    element: <LoginPage />,
+  },
+  // Admin dashboard section - independent of MainLayout (no header/footer)
+  {
+    path: DASHBOARD_PATH,
+    element: <AdminRoute />,
+    children: [
+      {
+        path: "",
+        element: <AdminPage />,
+        children: [
+          { path: "", element: <DashboardPage /> },
+          { path: "reports", element: <DashboardReportsPage /> },
+          { path: "users", element: <DashboardUsersPage /> },
+          { path: "settings", element: <DashboardSettingsPage /> },
+        ],
+      },
+    ],
+  },
+  // Regular website with header and footer
+  {
     path: "/",
     element: <MainLayout />,
     children: [
       { path: "", element: <HomePage /> },
+      // Regular user routes that require authentication
       {
-        path: REPORT_PATH,
+        path: "",
+        element: <ProtectedRoute />,
         children: [
           {
-            path: "",
-            element: <ReportPage />,
+            path: REPORT_PATH,
+            children: [
+              {
+                path: "",
+                element: <ReportPage />,
+              },
+              {
+                path: REPORT_FORM_PATH,
+                element: <ReportFormPage />,
+              },
+            ],
           },
-          {
-            path: REPORT_FORM_PATH,
-            element: <ReportFormPage />,
-          },
+          { path: GUIDE_PATH, element: <GuidePage /> },
         ],
       },
       { path: CONTACT_PATH, element: <ContactPage /> },
@@ -54,9 +94,7 @@ const router = createBrowserRouter([
       { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
       { path: POLICIES_PATH, element: <PoliciesPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
-      // { path: GUIDE_PATH, element: <GuidePage /> },
-      { path: "*", element: <NotFoundPage /> },
-    ],
+      { path: "*", element: <NotFoundPage /> },    ],
   },
 ]);
 
