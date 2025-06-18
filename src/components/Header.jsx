@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LogoLarge from "../assets/logoLarge.svg?react";
 import TriangleDown from "../assets/triangle-down.svg?react";
 import contentHorizontalPadding from "../styles/contentHorizontalPadding";
+import { useAuth } from "../context/useAuth";
 import {
     CONTACT_PATH,
     CSIRT_DEFINITION_PATH,
+    DASHBOARD_PATH,
     DOC_INFO_PATH,
     GUIDE_PATH,
     HOME_PATH,
     LEGAL_BASIS_PATH,
     LOGO_PATH,
+    LOGIN_PATH,
     POLICIES_PATH,
     REPORT_PATH,
     SERVICES_PATH,
@@ -45,6 +48,13 @@ const unclipBackgroundMenus = [HOME_PATH, CONTACT_PATH];
 
 export default function Header({ className = "" }) {
   const location = useLocation();
+  const { isAuthenticated, currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate(HOME_PATH);
+  };
 
   return (
     <div
@@ -61,7 +71,7 @@ export default function Header({ className = "" }) {
       }}
     >
       <LogoLarge className="aspect-3/2 max-w-[250px]" />
-      <div className="flex gap-8 pr-8">
+      <div className="flex gap-8 pr-8 items-center">
         {menus.map((menu) =>
           menu.submenu ? (
             <DropdownMenu
@@ -76,7 +86,54 @@ export default function Header({ className = "" }) {
               path={menu.path}
               selected={location.pathname === menu.path}
             />
-          )
+          )        )}          {isAuthenticated ? (
+          <div className="flex items-center gap-4">
+            {currentUser.role === "admin" && (
+              <Link
+                to={DASHBOARD_PATH}
+                className="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-sm"
+              >
+                Admin Dashboard
+              </Link>
+            )}
+            
+            {currentUser.role === "admin" ? (
+              <span className="text-sm text-white">
+                {currentUser.email}
+                <span className="ml-2 bg-yellow-400 text-black text-xs px-2 py-0.5 rounded">
+                  Admin
+                </span>
+              </span>
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+                {currentUser.email.charAt(0).toUpperCase()}
+              </div>
+            )}
+            
+            <button
+              onClick={handleLogout}
+              className={`hover:bg-white/20 text-white rounded text-sm ${
+                currentUser.role === "admin" 
+                  ? "bg-white/10 py-1 px-3" 
+                  : "bg-transparent p-1"
+              }`}
+              title="Logout"
+            >              {currentUser.role === "admin" ? (
+                "Logout"
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                </svg>
+              )}
+            </button>
+          </div>
+        ) : (
+          <Link
+            to={LOGIN_PATH}
+            className="bg-white/10 hover:bg-white/20 text-white py-1 px-3 rounded text-sm"
+          >
+            Login
+          </Link>
         )}
       </div>
     </div>
