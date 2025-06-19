@@ -83,7 +83,7 @@ const router = createBrowserRouter([
               },
             ],
           },
-          { path: GUIDE_PATH, element: <GuidePage /> },
+          // { path: GUIDE_PATH, element: <GuidePage /> },
         ],
       },
       { path: CONTACT_PATH, element: <ContactPage /> },
@@ -92,9 +92,11 @@ const router = createBrowserRouter([
       { path: LOGO_PATH, element: <LogoDefinitionPage /> },
       { path: DOC_INFO_PATH, element: <DocInfoPage /> },
       { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
+      { path: GUIDE_PATH, element: <GuidePage /> },
       { path: POLICIES_PATH, element: <PoliciesPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
-      { path: "*", element: <NotFoundPage /> },    ],
+      { path: "*", element: <NotFoundPage /> },
+    ],
   },
 ]);
 
