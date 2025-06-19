@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../context/useAuth";
+import { useSelector } from "react-redux";
 import { LOGIN_PATH } from "../utils/paths";
 
 export default function AdminRoute() {
-  const { isAuthenticated, isAdmin } = useAuth();
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const isAdmin = user?.role === "admin";
 
   // If user is not authenticated or not an admin, redirect to login page
   if (!isAuthenticated || !isAdmin) {

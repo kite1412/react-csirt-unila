@@ -15,6 +15,7 @@ export const CONTACT_PATH = "/kontak";
 export const REPORT_PATH = "/laporan";
 export const REPORT_FORM_PATH = REPORT_PATH + "/form-pengaduan-insiden";
 export const LOGIN_PATH = "/login";
+export const REGISTER_PATH = "/register";
 
 // Dashboard routes
 export const DASHBOARD_PATH = DASHBOARD_BASE_PATH;

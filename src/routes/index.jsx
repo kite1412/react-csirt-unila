@@ -10,6 +10,7 @@ import ReportFormPage from "../pages/ReportFormPage";
 import ReportPage from "../pages/ReportPage";
 import ServicesPage from "../pages/ServicesPage";
 import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 import DashboardPage from "../pages/DashboardPage";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
@@ -25,6 +26,7 @@ import {
   LEGAL_BASIS_PATH,
   LOGO_PATH,
   LOGIN_PATH,
+  REGISTER_PATH,
   POLICIES_PATH,
   REPORT_FORM_PATH,
   REPORT_PATH,
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: LOGIN_PATH,
     element: <LoginPage />,
+  },
+  {
+    path: REGISTER_PATH,
+    element: <RegisterPage />,
   },
   // Admin dashboard section - independent of MainLayout (no header/footer)
   {
@@ -94,7 +100,8 @@ const router = createBrowserRouter([
       { path: LEGAL_BASIS_PATH, element: <LegalBasisPage /> },
       { path: POLICIES_PATH, element: <PoliciesPage /> },
       { path: SERVICES_PATH, element: <ServicesPage /> },
-      { path: "*", element: <NotFoundPage /> },    ],
+      { path: "*", element: <NotFoundPage /> },
+    ],
   },
 ]);
 

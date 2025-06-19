@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../context/useAuth";
+import { useSelector } from "react-redux";
 import { LOGIN_PATH } from "../utils/paths";
 
 export default function ProtectedRoute() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   // If user is not authenticated, redirect to login page
   if (!isAuthenticated) {
