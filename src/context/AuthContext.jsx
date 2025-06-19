@@ -1,63 +1,39 @@
 import { createContext, useState, useEffect } from "react";
+import { useAuthRedux } from "../hooks/useAuthRedux";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // Check if user is already logged in from localStorage
-  const [currentUser, setCurrentUser] = useState(() => {
-    const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
+  const { user, isAuthenticated, loginUser, logoutUser, status } =
+    useAuthRedux();
+
   const [loading, setLoading] = useState(true);
 
-  // Effect to persist user in localStorage
   useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem("user", JSON.stringify(currentUser));
-    } else {
-      localStorage.removeItem("user");
+    // Check if authentication is still in progress
+    if (status !== "loading") {
+      setLoading(false);
     }
-    setLoading(false);
-  }, [currentUser]);
-  // Simple login function - In a real app, this would call an API
-  const login = (email, password) => {
-    console.log("Login function called with:", email, password);    try {
-      // For demo purposes, "admin@example.com" with password "admin" logs in as admin
-      if ((email === "admin@example.com" || email === "admin@gmail.com") && password === "admin") {
-        const user = { email, role: "admin" };
-        console.log("Admin login successful:", user);
-        setCurrentUser(user);
-        return { success: true, user };
-      }
-      // Regular users can login with any email and password "password"
-      else if (password === "password") {
-        const user = { email, role: "public" };
-        console.log("Public user login successful:", user);
-        setCurrentUser(user);
-        return { success: true, user };
-      }
+  }, [status]);
 
-      console.log("Login failed: Invalid credentials");
-      return { success: false, message: "Invalid email or password" };
-    } catch (error) {
-      console.error("Error in login function:", error);
-      return { success: false, message: "An error occurred during login" };
-    }
+  // This wrapper maintains the original context API interface
+  // but delegates to Redux under the hood
+  const login = async (username, password) => {
+    return await loginUser(username, password);
   };
 
-  // Logout function
-  const logout = () => {
-    setCurrentUser(null);
-    localStorage.removeItem("user");
+  const logout = async () => {
+    return await logoutUser();
   };
 
   const value = {
-    currentUser,
+    currentUser: user,
     login,
     logout,
-    isAuthenticated: !!currentUser,
-    isAdmin: currentUser?.role === "admin",
+    isAuthenticated,
+    isAdmin: user?.role === "admin",
   };
+
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
