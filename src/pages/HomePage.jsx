@@ -75,7 +75,6 @@ function HomePage() {
           className="w-sm h-auto"
         />
       </div>
-
       <div
         className="w-full h-fit flex flex-col items-center px-20 gap-10 text-white"
         data-aos="fade-up"
@@ -131,7 +130,6 @@ function HomePage() {
           </div>
         </div>
       </div>
-
       <div
         className="w-full flex flex-col gap-50 bg-primary py-50"
         style={{
@@ -174,7 +172,6 @@ function HomePage() {
           <IncidentLog incidents={incidentData} />
         </div>
       </div>
-
       <div
         className="w-full h-fit flex flex-col items-center px-20 gap-10"
         data-aos="fade-up"
